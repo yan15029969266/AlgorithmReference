@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Content/jquery-1.9.1.js"></script>
+</head>
+<body>
+    测试结果：<div id="div_test">
+
+    </div>
+    <form action="http://localhost:38628/api/Default" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" /><br />
+        <input type="submit" value="提交" />
+    </form>
+</body>
+</html>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    var ApiUrl = "http://localhost:38628/";
+    $(function () {
+        $.ajax({
+            type: "get",
+            url: ApiUrl + "api/Default",
+            data: {},
+            success: function (data, status) {
+                if (status == "success") {
+                    $("#div_test").html(data);
+                }
+            },
+            error: function (e) {
+                $("#div_test").html("Error");
+            },
+            complete: function () {
+
+            }
+
+        });
+    });
+</script>
